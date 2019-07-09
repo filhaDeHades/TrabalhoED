@@ -1,0 +1,167 @@
+#include "arvbm.h"
+
+
+int main(void){
+
+    int t = 0;
+    printf("Digite t: ");
+    scanf("%d", &t);
+
+    TABM *arv = NULL; //cria arvore
+    FILE *o = fopen("dados_iniciais.dat", "rb"); //abre arquivo
+    if(!o) exit(1);
+    rewind(o); //ter certeza que o ponteiro esta no inicio do arquivo
+    TPizza *p = le_pizza(o);
+    int i = 0;
+    while(p){
+        arv = insere(arv, p, t);
+        p = le_pizza(o);
+    }
+
+    imprime_arvore(arv, 0, t);
+
+    arv = addpai(arv, t);
+
+    /*
+    printf("Digite um número para exclui-lo, digite -1 para parar: ");
+    int m;
+    while(1){
+        scanf("%d", &m);
+        if(m == -1) break;
+        else{
+            arv = exclui(arv, m, t);
+            imprime_arvore(arv, 0, t);
+            //printf("%d\n", arv->chave[0]);
+            printf("Digite um número para exclui-lo, digite -1 para parar: ");
+        }
+    }
+   */ 
+
+    /*
+    //FUNÇÃO PARA ESCREVER A ARVORE NO ARQUIVO 
+    //SÓ USAR NOVAMENTE SE EXCLUIR OS ARQUIVOS
+
+    abreAquivos();
+    printf("\n\nesse deve ser o endereço do primeiro no: %ld\n", escreveArvore(arv, t));
+
+    */
+
+    /*
+
+    //INSERE PIZZA
+    TPizza *pizz = pizza(7, "Vitoria??", "Inferno", 1000.99);
+    long int teste = insereArquivo(pizz, t);
+    if(teste >= 0) printf("endereço: %ld\n",teste);
+    else printf("Saiu com problma: %ld\n",teste);
+    */
+
+
+    /*
+
+    // -------------------------- LER DADO DO ARQUIVO DE INDICE --------------------------
+    
+
+    FILE *arquivo = fopen("indice.dat", "rb+");
+    //COLOCA A POSIÇÃO QUE DESEJA
+    fseek(arquivo, 768 , SEEK_SET);
+
+    int nChave, filhoFolha, chave[t*2-1];
+    long int posFilho[t*2-1], posPai; 
+
+    for(i = 0; i<t*2; i++)
+    {
+        fread(&posFilho[i], sizeof(long int), 1, arquivo); //POSIÇÃO DOS FILHOS
+    }
+
+    fread(&nChave, sizeof(int), 1, arquivo); // NUMERO DE CHAVE
+    fread(&posPai, sizeof(long int), 1, arquivo);   // POSIÇÃO DO PAI
+
+    fread(&filhoFolha, sizeof(int), 1, arquivo); //SE FILHO É FOLHA
+    for(i = 0; i<t*2-1; i++)
+    {
+        fread(&chave[i], sizeof(int), 1, arquivo); // CHAVES
+    }
+    fclose(arquivo);
+
+    printf("\n----------------- INDICE -------------------\nNUMERO DE CHAVES:  %d\n",nChave );
+    printf("POSIÇÃO DO PAI: %ld\n",posPai );
+    printf("SE FILHO É FOLHA? %d\nCHAVES: ",filhoFolha);
+    for(i = 0; i<t*2-1; i++)
+        printf("%d ",chave[i]);
+    printf("\nPOSIÇÃO DOS FILHOS: ");
+    for (i = 0; i < t*2; i++)
+        printf("%ld ", posFilho[i]);
+    printf("\n");
+
+    //------------------------------------------------------------------------------------------
+    */
+
+    /*
+
+    // --------------------- LER DADO DO ARQUIVO DE DADOS --------------------------------------
+
+    arquivo = fopen("dados.dat", "rb");
+    fseek(arquivo, 2256, SEEK_SET);
+
+    int nChaveD, chaveD[t*2-1];
+    long int endPizza[t*2-1], proxFolha; 
+
+    fread(&nChaveD, sizeof(int), 1, arquivo);//NUMERO DE CAHVE
+    for(i = 0; i<t*2-1; i++){ //CHAVE = T*2-1
+        fread(&chaveD[i], sizeof(int), 1, arquivo);
+    }
+    for(i = 0; i<t*2-1; i++) //ENDEREÇO DAS PIZZAS
+    {
+        fread(&endPizza[i], sizeof(long int), 1, arquivo);
+    }
+    fread(&proxFolha, sizeof(long int), 1, arquivo); //POSIÇÃO DA PROXIMA FOLHA
+    fclose(arquivo);
+
+    printf("\n---------- DADOS ---------\nNUMERO DE CHAVES:  %d\n",nChaveD );
+    printf("POSIÇÃO DO PROXIMO: %ld\nCHAVES: ",proxFolha );
+    for(i = 0; i<t*2-1; i++)
+        printf("%d ",chaveD[i]);
+    printf("\nPOSIÇÃO DAS PIZZAS: ");
+    for (i = 0; i < t*2-1; i++)
+        printf("%ld ", endPizza[i]);
+    printf("\n");
+
+    //-------------------------------------------------------------------------------------
+
+    */
+
+    /*
+
+    //----------------------------- LER PIZZA ------------------------------------------
+
+    printf("\n---------------- PIZZA COD: 146 -----------------\n");
+    arquivo = fopen("pizza.dat", "rb+");
+    fseek(arquivo, 4056 , SEEK_SET);
+    TPizza *pizza = le_pizza(arquivo);
+    fclose(arquivo);
+    imprime_pizza(pizza);
+    printf("\n");
+
+    //-------------------------------------------------------------------------------------
+
+    */
+
+    //-------------------------- BUSCA PIZZA ----------------------------------------------  
+    /*
+    printf("\n");
+    arquivo = fopen("indice.dat", "rb");
+    rewind(arquivo);
+    long int end = BuscaArquivo(0, 7, t, arquivo);
+    FILE *arqpizza = fopen("pizza.dat", "rb");
+    if(end >= 0){
+        fseek(arqpizza, end , SEEK_SET);
+        TPizza *pizza = le_pizza(arqpizza);
+        fclose(arqpizza);
+        fclose(arquivo);
+        imprime_pizza(pizza);
+        printf("\n");
+    } else printf("\nNão exite\n");
+    */
+
+
+}
