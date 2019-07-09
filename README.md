@@ -57,7 +57,7 @@ Tamires da Hora e Barbara Keren Guarino
 
 ## Funções
 
-1. Funlçoes de Inicializar
+1. Funções de Inicializar
 	1. Abir arquivos
 	2. Inicializar arvore na memoria principal
 	3. Criar nó da arvore da memoria principal
@@ -78,7 +78,13 @@ Tamires da Hora e Barbara Keren Guarino
 5. Funções de libere
 	1. Libera arvore da memoria principal
 
-6. *Funções de Excluir*
+6. *Funções de Excluir em MP*
+	1. Exclui não completa
+	2. Redistribuição de nós internos
+	3. Concatenação de nós internos
+	4. Concatenação de nós folhas
+	5. Redistribuição de nós folhas
+	6. Exclusão
 
 7. Funções para passar a arvore da memoria principal para a memoria segundaria (*arquivo*)
 	1. Escreve as folhas no arquivo *"dados.dat"*
